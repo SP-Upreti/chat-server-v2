@@ -4,7 +4,7 @@ const { app, server } = require('./socket/socket.js')
 const cors = require('cors');
 
 app.use(cors({
-    origin: 'http://localhost:5173', // Change this to your frontend URL
+    origin: '*', // Change this to your frontend URL
     credentials: true, // Allow cookies to be sent
 }));
 
@@ -24,12 +24,6 @@ dotenv.config();
 app.use(cookieParser())
 
 const Port = process.env.PORT || 8000;
-
-// const __dirname = path.resolve();
-
-
-
-
 
 app.use('/auth', authRoutes);
 app.use('/message', messageRoute);
