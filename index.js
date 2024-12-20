@@ -3,10 +3,11 @@ const express = require('express');
 const { app, server } = require('./socket/socket.js')
 const cors = require('cors');
 
-app.use(cors({
-    origin: '*', // Change this to your frontend URL
-    credentials: true, // Allow cookies to be sent
-}));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 
 
 app.use(express.json());
