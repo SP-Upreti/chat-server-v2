@@ -1,0 +1,50 @@
+[
+    {
+        "_id": "67382d60c59aa8c60c82f15f",
+        "participants": [
+            "673716afe8ef17c4cb7b5d53",
+            "67371b7ca0b74e7bba9e440d"
+        ],
+        "messageId": [
+            {
+                "_id": "67382e850206e7a167d23b21",
+                "senderId": "673716afe8ef17c4cb7b5d53",
+                "receiverId": "67371b7ca0b74e7bba9e440d",
+                "message": "bye bye thats it",
+                "createdAt": "2024-11-16T05:32:53.049Z",
+                "updatedAt": "2024-11-16T05:32:53.049Z",
+                "__v": 0
+            },
+            {
+                "_id": "6738385d0fd95477b26da6d8",
+                "senderId": "673716afe8ef17c4cb7b5d53",
+                "receiverId": "67371b7ca0b74e7bba9e440d",
+                "message": "sbcvysdbv;sedibv'",
+                "createdAt": "2024-11-16T06:14:53.350Z",
+                "updatedAt": "2024-11-16T06:14:53.350Z",
+                "__v": 0
+            },
+            {
+                "_id": "673838650fd95477b26da6dd",
+                "senderId": "673716afe8ef17c4cb7b5d53",
+                "receiverId": "67371b7ca0b74e7bba9e440d",
+                "message": "sbcvysdbv;weifjiowefjiowefj'",
+                "createdAt": "2024-11-16T06:15:01.895Z",
+                "updatedAt": "2024-11-16T06:15:01.895Z",
+                "__v": 0
+            },
+            {
+                "_id": "6738386b0fd95477b26da6e2",
+                "senderId": "673716afe8ef17c4cb7b5d53",
+                "receiverId": "67371b7ca0b74e7bba9e440d",
+                "message": "asbbcuwebhwef;weifjiowefjiowefj'",
+                "createdAt": "2024-11-16T06:15:07.365Z",
+                "updatedAt": "2024-11-16T06:15:07.365Z",
+                "__v": 0
+            }
+        ],
+        "createdAt": "2024-11-16T05:28:00.187Z",
+        "updatedAt": "2024-11-16T06:15:07.418Z",
+        "__v": 4
+    }
+]
