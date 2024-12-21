@@ -7,22 +7,10 @@ const cookieParser = require('cookie-parser');
 dotenv.config();
 
 app.use(cors({
-    origin: 'https://chattter-gilt.vercel.app', // Your frontend's domain
-    credentials: true, // Include credentials like cookies
+    origin: '*', // Temporary for development only!
 }));
 
-// Set CORS headers manually (optional but explicit)
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://chattter-gilt.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    next();
-});
-
-
 // Handle preflight OPTIONS request
-app.options('*', cors());
 app.use(express.json());
 app.use(cookieParser());
 
