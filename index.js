@@ -8,16 +8,26 @@ dotenv.config();
 
 // Allow CORS from specific frontend domain
 app.use(cors({
-    origin: 'https://chattter-gilt.vercel.app', // Your frontend's origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // Allow cookies to be sent
+    origin: 'https://chattter-gilt.vercel.app', // Allow the frontend origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
+    allowedHeaders: [
+        'Content-Type',
+        'Authorization',
+        'X-Requested-With',
+        'Access-Control-Allow-Methods', // Include this header
+    ],
+    credentials: true // If cookies or Authorization headers are needed
 }));
 
 app.options('*', cors({
     origin: 'https://chattter-gilt.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: [
+        'Content-Type',
+        'Authorization',
+        'X-Requested-With',
+        'Access-Control-Allow-Methods', // Include this header
+    ],
     credentials: true,
 }));
 
