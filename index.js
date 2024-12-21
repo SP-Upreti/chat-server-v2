@@ -1,57 +1,48 @@
 const express = require('express');
+// const app = express();
+const { app, server } = require('./socket/socket.js')
 const cors = require('cors');
-const { app, server } = require('./socket/socket.js');
+
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://www.chattter-gilt.vercel.app/', 'https://chattter-gilt.vercel.app/'],
+    credentials: true, // Allow cookies to be sent
+}));
+
+
+app.use(express.json());
+
 const dotenv = require('dotenv');
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser')
+const authRoutes = require('./route/auth');
+const messageRoute = require('./route/message.js')
+const userRoute = require('./route/user.js')
+const databaseConnect = require('./database/connection');
+
+const path = require('path')
 
 dotenv.config();
+app.use(cookieParser())
 
-// Allow CORS from specific frontend domain
-app.use(cors({
-    origin: 'https://chattter-gilt.vercel.app', // Allow the frontend origin
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allowed methods
-    allowedHeaders: [
-        'Content-Type',
-        'Authorization',
-        'X-Requested-With',
-        'Access-Control-Allow-Methods', // Include this header
-    ],
-    credentials: true // If cookies or Authorization headers are needed
-}));
+const Port = process.env.PORT || 8000;
 
-app.options('*', cors({
-    origin: 'https://chattter-gilt.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: [
-        'Content-Type',
-        'Authorization',
-        'X-Requested-With',
-        'Access-Control-Allow-Methods', // Include this header
-    ],
-    credentials: true,
-}));
+// const __dirname = path.resolve();
 
 
-// Handle preflight OPTIONS request
-app.use(express.json());
-app.use(cookieParser());
 
-// Routes
-const authRoutes = require('./route/auth');
-const messageRoute = require('./route/message');
-const userRoute = require('./route/user');
-const databaseConnect = require('./database/connection');
+
 
 app.use('/auth', authRoutes);
 app.use('/message', messageRoute);
 app.use('/user', userRoute);
 
-// Basic endpoint
-app.get('/', (req, res) => {
-    res.json({ message: "API live" });
-});
+// app.use(express.static(path.join(__dirname, "../client/build")))
 
-const Port = process.env.PORT || 8000;
+app.get(
+    "/", (req, res) => {
+        res.json({ message: "api live" })
+    }
+)
+
 server.listen(Port, () => {
     databaseConnect();
     console.log(`Server is running on port http://localhost:${Port}`);
