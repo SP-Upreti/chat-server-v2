@@ -5,14 +5,14 @@ const cors = require('cors');
 
 // CORS middleware for API routes
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://chattter-gilt.vercel.app'], // Your frontend's origin
+    origin: ['http://localhost:3000', 'https://chattter-gilt.vercel.app'], // Your frontend's origin
     credentials: true, // Allow credentials (cookies, headers)
     allowedHeaders: ['Content-Type', 'Authorization'], // Allow Content-Type and other custom headers
 }));
 
 // Add headers explicitly for all routes (optional)
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.header('Access-Control-Allow-Origin', ['http://localhost:3000', 'https://chattter-gilt.vercel.app']);
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
