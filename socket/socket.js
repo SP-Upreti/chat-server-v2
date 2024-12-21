@@ -8,7 +8,7 @@ const app = express();
 const server = http.createServer(app)
 const io = new Server(server, {
     cors: {
-        origin: "https://chattter-gilt.vercel.app/", // Your frontend's origin
+        origin: "https://chattter-gilt.vercel.app", // Your frontend's origin
         methods: ["GET", "POST"],
         credentials: true, // Allow credentials
         allowedHeaders: ['Content-Type', 'Authorization'], // Allow Content-Type

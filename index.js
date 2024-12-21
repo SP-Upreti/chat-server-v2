@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 dotenv.config();
 
 app.use(cors({
-    origin: 'https://chattter-gilt.vercel.app/', // Temporary for development only!
+    origin: 'https://chattter-gilt.vercel.app', // Temporary for development only!
     credentials: true
 }));
 
