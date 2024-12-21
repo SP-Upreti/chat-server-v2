@@ -12,7 +12,7 @@ app.use(cors({
 
 // Add headers explicitly for all routes (optional)
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', ['http://localhost:3000', 'https://chattter-gilt.vercel.app']);
+    res.header('Access-Control-Allow-Origin', 'https://chattter-gilt.vercel.app');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
