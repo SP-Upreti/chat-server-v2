@@ -1,4 +1,3 @@
-// import { Server } from "socket.io";
 const { Server } = require('socket.io')
 const http = require('http')
 const express = require('express');
@@ -6,6 +5,7 @@ const express = require('express');
 const app = express();
 
 const server = http.createServer(app)
+
 const io = new Server(server, {
     cors: {
         origin: "https://chattter-gilt.vercel.app", // Your frontend's origin
@@ -33,8 +33,6 @@ io.on('connection', (socket) => {
         delete useSocketMap[userId];
         io.emit("getOnlineUsers", Object.keys(useSocketMap))
     })
-}
-
-)
+})
 
 module.exports = { app, io, server, getReceiverSocketId };
